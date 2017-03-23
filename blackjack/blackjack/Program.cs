@@ -31,10 +31,7 @@ namespace blackjack
             var gameDeck = Deck();
             List<Card> userHand = new List<Card>();
 
-            for (int i = 0; i < length; i++)
-            {
-
-            }
+            
 
 
 
