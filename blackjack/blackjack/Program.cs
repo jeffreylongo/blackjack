@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace blackjack
 {
     class Program
-    {
+    {   //this is creating my deck
         static List<Card> Deck()
         {
             var deck = new List<Card>();
@@ -23,16 +23,41 @@ namespace blackjack
             var randomDeck = deck.OrderBy(x => Guid.NewGuid()).ToList();
             return randomDeck;
         }
-
-        
-
-        static void Main(string[] args)
+        //this will deal the user 2 cards
+        static List<Card> userDeal()
         {
             var gameDeck = Deck();
             List<Card> userHand = new List<Card>();
+            List<Card> dealerHand = new List<Card>();
+            var counter = 0;
 
-            
+            userHand.Add(gameDeck[counter]);
+            counter++;
+            userHand.Add(gameDeck[counter]);
+            counter++;
 
+            return userHand;
+        }
+        //this will deal the dealer 2 cards
+        static List<Card> dealerDeal()
+        {
+            var gameDeck = Deck();
+            List<Card> userHand = new List<Card>();
+            List<Card> dealerHand = new List<Card>();
+            var counter = 0;
+
+            dealerHand.Add(gameDeck[counter]);
+            counter++;
+            dealerHand.Add(gameDeck[counter]);
+            counter++;
+
+            return dealerHand;
+        }
+
+
+
+        static void Main(string[] args)
+        {
 
 
             Console.ReadLine();
