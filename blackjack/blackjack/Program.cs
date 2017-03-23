@@ -19,18 +19,25 @@ namespace blackjack
                     deck.Add(new Card(s, r));
                 }
             }
-
             //sort the deck. NOTICE that the variable 'deck' is unchanged, but 'randomDeck' is the actual sorted deck.
             var randomDeck = deck.OrderBy(x => Guid.NewGuid()).ToList();
-
             return randomDeck;
         }
 
+        
 
         static void Main(string[] args)
         {
-            
-            
+            var gameDeck = Deck();
+            List<Card> userHand = new List<Card>();
+
+            for (int i = 0; i < length; i++)
+            {
+
+            }
+
+
+
             Console.ReadLine();
         }
     }
