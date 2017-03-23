@@ -59,6 +59,10 @@ namespace blackjack
         static void Main(string[] args)
         {
 
+            foreach (var item in collection)
+            {
+
+            }
 
             Console.ReadLine();
         }
