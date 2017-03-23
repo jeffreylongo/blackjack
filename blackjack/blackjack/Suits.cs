@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace blackjack
 {
-    class Program
+    public enum Suits
     {
-        static void Main(string[] args)
-        {
-
-        }
+        Hearts,
+        Clubs,
+        Diamonds,
+        Spades
     }
 }
