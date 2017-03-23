@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace blackjack
 {
-    public enum Suits
+    public enum Suit
     {
         Hearts,
         Clubs,
