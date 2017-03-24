@@ -72,6 +72,16 @@ namespace blackjack
             DisplayHand(userHand);
             ShowDealerCardMessage();
             Console.ReadKey();
+
+            //this is getting your card value for 1 card I believe
+            var cardValue = 0;
+            foreach (Card card in userHand)
+            {
+                card.GetCardValue();
+                cardValue = card.GetCardValue();
+            }
+
+            //userHand.GetCardValue();
             
             DisplayHand(dealerHand.Take(1));
 
