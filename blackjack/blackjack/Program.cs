@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 namespace blackjack
 {
     class Program
-    {   //this is creating my deck
-        static List<Card> Deck()
+        {   
+        static List<Card> deck;
+        //this is creating my deck
+        static List<Card> CreateAndShuffleDeck()
         {
             var deck = new List<Card>();
 
@@ -23,47 +25,60 @@ namespace blackjack
             var randomDeck = deck.OrderBy(x => Guid.NewGuid()).ToList();
             return randomDeck;
         }
-        //this will deal the user 2 cards
-        static List<Card> userDeal()
+        //this will deal a card from the top of the deck and remove it from the List 
+        static List<Card> DealHand()
         {
-            var gameDeck = Deck();
-            List<Card> userHand = new List<Card>();
-            List<Card> dealerHand = new List<Card>();
-            var counter = 0;
+            List<Card> hand = new List<Card>();
+            var newCard = deck[0];
+            deck.RemoveAt(0);
+            hand.Add(newCard);
 
-            userHand.Add(gameDeck[counter]);
-            counter++;
-            userHand.Add(gameDeck[counter]);
-            counter++;
-
-            return userHand;
-        }
-        //this will deal the dealer 2 cards
-        static List<Card> dealerDeal()
-        {
-            var gameDeck = Deck();
-            List<Card> userHand = new List<Card>();
-            List<Card> dealerHand = new List<Card>();
-            var counter = 0;
-
-            dealerHand.Add(gameDeck[counter]);
-            counter++;
-            dealerHand.Add(gameDeck[counter]);
-            counter++;
-
-            return dealerHand;
+            newCard = deck[0];
+            deck.RemoveAt(0);
+            hand.Add(newCard);
+            return hand;
+            
         }
 
+        //This will show the hand. 
+        static void DisplayHand(List<Card> hand)
+        {
+            foreach (Card card in hand)
+            {
+                Console.WriteLine(card);
+            }
+        }
 
-        List<int> userHand = 0;
+        static void Greeting()
+        {
+            Console.WriteLine("Welcome to Ghetto BlackJack...if you're lucky, if you press ::RETURN:: you will get 2 cards.");
+        }
+
+        static void ShowDealerCardMessage()
+        {
+            Console.WriteLine("Press ::RETURN:: to see the dealers dirt");
+        }
+
         static void Main(string[] args)
         {
 
-            foreach (List<Card> userDeal in Deck)
+            deck = CreateAndShuffleDeck();
+            var userHand = DealHand();
+            var dealerHand = DealHand();
+
+            Greeting();
+            Console.ReadKey();
+
+            DisplayHand(userHand);
+            ShowDealerCardMessage();
+            Console.ReadKey();
+            
+            DisplayHand(dealerHand);
+
+            /*foreach (var i in deck)
             {
-
-            }
-
+                Console.WriteLine(i);
+            }*/
             Console.ReadLine();
         }
     }
