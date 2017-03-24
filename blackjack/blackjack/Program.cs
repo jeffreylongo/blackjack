@@ -41,19 +41,19 @@ namespace blackjack
         }
 
         //This will show the hand. 
-        static void DisplayHand(List<Card> hand)
+        static void DisplayHand(IEnumerable<Card> hand)
         {
             foreach (Card card in hand)
             {
                 Console.WriteLine(card);
             }
         }
-
+        //this will greet the player and prompt them for return key
         static void Greeting()
         {
             Console.WriteLine("Welcome to Ghetto BlackJack...if you're lucky, if you press ::RETURN:: you will get 2 cards.");
         }
-
+        //this will prompt them to display dealer card
         static void ShowDealerCardMessage()
         {
             Console.WriteLine("Press ::RETURN:: to see the dealers dirt");
@@ -73,7 +73,8 @@ namespace blackjack
             ShowDealerCardMessage();
             Console.ReadKey();
             
-            DisplayHand(dealerHand);
+            DisplayHand(dealerHand.Take(1));
+
 
             /*foreach (var i in deck)
             {
