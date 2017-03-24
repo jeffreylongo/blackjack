@@ -55,11 +55,11 @@ namespace blackjack
         }
 
 
-
+        List<int> userHand = 0;
         static void Main(string[] args)
         {
 
-            foreach (var item in collection)
+            foreach (List<Card> userDeal in Deck)
             {
 
             }
