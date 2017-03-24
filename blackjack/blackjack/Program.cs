@@ -66,6 +66,7 @@ namespace blackjack
             var userHand = DealHand();
             var dealerHand = DealHand();
 
+
             Greeting();
             Console.ReadKey();
 
@@ -73,23 +74,23 @@ namespace blackjack
             ShowDealerCardMessage();
             Console.ReadKey();
 
-            //this is getting your card value for 1 card I believe
+            //this is getting your card hand value 
             var cardValue = 0;
             foreach (Card card in userHand)
             {
                 card.GetCardValue();
                 cardValue = card.GetCardValue();
             }
+            //this will add the sum of the cards in the hand. 
 
-            //userHand.GetCardValue();
-            
+
+            //this is displaying card hand value
+
+
+            //this is showing one of the dealers cards. 
             DisplayHand(dealerHand.Take(1));
 
 
-            /*foreach (var i in deck)
-            {
-                Console.WriteLine(i);
-            }*/
             Console.ReadLine();
         }
     }
