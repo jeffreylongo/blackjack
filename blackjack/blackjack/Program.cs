@@ -39,7 +39,6 @@ namespace blackjack
             return hand;
             
         }
-
         //This will show the hand. 
         static void DisplayHand(IEnumerable<Card> hand)
         {
