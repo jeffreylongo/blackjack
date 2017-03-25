@@ -72,26 +72,18 @@ namespace blackjack
             ShowDealerCardMessage();
             Console.ReadKey();
 
-            //this is getting your card hand value but only gets one...broken list wont work for me for some reason. 
-            /*var cardValue = 0;
-            foreach (Card card in userHand)
-            {
-                card.GetCardValue();
-                cardValue = card.GetCardValue();
-            }*/
-
+            //this is getting your card hand value and showing to screen. for some reason showing a bit too much info. 
             List<int> cardValue = new List<int>();
             foreach (Card card in userHand)
             {
-                card.GetCardValue();
+                //card.GetCardValue();
                 cardValue.Add(card.GetCardValue());
+                //Console.WriteLine(String.Join(", ", cardValue));
+                Console.Write(cardValue.Sum(x => Convert.ToInt32(x)));
             }
 
             //this will display the value of the cards in the hand. 
-            foreach (Card card in userHand)
-            {
-                Console.WriteLine(cardValue);
-            }
+
 
 
             //this is showing one of the dealers cards. 
