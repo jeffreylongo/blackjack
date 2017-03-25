@@ -57,6 +57,7 @@ namespace blackjack
         {
             Console.WriteLine("Press ::RETURN:: to see the dealers dirt");
         }
+        
 
         static void Main(string[] args)
         {
@@ -69,20 +70,20 @@ namespace blackjack
             Console.ReadKey();
 
             DisplayHand(userHand);
-            ShowDealerCardMessage();
-            Console.ReadKey();
 
-            //this is getting your card hand value and showing to screen. for some reason showing a bit too much info. 
+            //this is getting your card hand value  
             List<int> cardValue = new List<int>();
             foreach (Card card in userHand)
             {
-                //card.GetCardValue();
                 cardValue.Add(card.GetCardValue());
-                //Console.WriteLine(String.Join(", ", cardValue));
             }
-                Console.Write(cardValue.Sum(x => Convert.ToInt32(x)));
 
             //this will display the value of the cards in the hand. 
+            Console.WriteLine(cardValue.Sum(x => Convert.ToInt32(x)));
+
+            ShowDealerCardMessage();
+            Console.ReadKey();
+
 
 
 
