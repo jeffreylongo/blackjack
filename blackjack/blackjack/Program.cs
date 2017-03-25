@@ -80,10 +80,12 @@ namespace blackjack
                 card.GetCardValue();
                 cardValue = card.GetCardValue();
             }
-            //this will add the sum of the cards in the hand. 
+            //this will display the value of the cards in the hand. 
+            foreach (Card card in userHand)
+            {
+                Console.WriteLine(cardValue);
+            }
 
-
-            //this is displaying card hand value
 
 
             //this is showing one of the dealers cards. 
