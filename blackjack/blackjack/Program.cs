@@ -55,9 +55,14 @@ namespace blackjack
         //this will prompt them to display dealer card
         static void ShowDealerCardMessage()
         {
-            Console.WriteLine("Press ::RETURN:: to see the dealers dirt");
+            Console.WriteLine("Press ::RETURN:: to see the dealers dirt.");
         }
-        
+        //this will prompt user to display their total
+        static void DisplayUserHandTotalMessage()
+        {
+            Console.WriteLine("Press ::RETURN:: to see your total card value in case you cant add.");
+            Console.ReadKey();
+        }
 
         static void Main(string[] args)
         {
@@ -77,6 +82,8 @@ namespace blackjack
             {
                 cardValue.Add(card.GetCardValue());
             }
+
+            DisplayUserHandTotalMessage();
 
             //this will display the value of the cards in the hand. 
             Console.WriteLine(cardValue.Sum(x => Convert.ToInt32(x)));
