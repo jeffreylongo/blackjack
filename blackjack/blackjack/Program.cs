@@ -79,8 +79,8 @@ namespace blackjack
                 //card.GetCardValue();
                 cardValue.Add(card.GetCardValue());
                 //Console.WriteLine(String.Join(", ", cardValue));
-                Console.Write(cardValue.Sum(x => Convert.ToInt32(x)));
             }
+                Console.Write(cardValue.Sum(x => Convert.ToInt32(x)));
 
             //this will display the value of the cards in the hand. 
 
