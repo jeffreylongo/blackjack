@@ -74,18 +74,24 @@ namespace blackjack
             Console.ReadKey();
 
             //this is getting your card hand value 
-            var cardValue = 0;
+            /*var cardValue = 0;
+            foreach (Card card in userHand)
+            {
+                card.GetCardValue();
+                cardValue = card.GetCardValue();
+            }*/
+            List<int> cardValue;
             foreach (Card card in userHand)
             {
                 card.GetCardValue();
                 cardValue = card.GetCardValue();
             }
+
             //this will display the value of the cards in the hand. 
             foreach (Card card in userHand)
             {
                 Console.WriteLine(cardValue);
             }
-
 
 
             //this is showing one of the dealers cards. 
