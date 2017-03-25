@@ -51,6 +51,7 @@ namespace blackjack
         static void Greeting()
         {
             Console.WriteLine("Welcome to Ghetto BlackJack...if you're lucky, if you press ::RETURN:: you will get 2 cards.");
+            Console.ReadKey();
         }
         //this will prompt them to display dealer card
         static void ShowDealerCardMessage()
@@ -83,7 +84,6 @@ namespace blackjack
             var dealerHand = DealHand();
 
             Greeting();
-            Console.ReadKey();
 
             DisplayHand(userHand);
 
