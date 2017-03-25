@@ -64,17 +64,7 @@ namespace blackjack
             Console.WriteLine("Press ::RETURN:: to see your total card value in case you cant add.");
             Console.ReadKey();
         }
-        //this will get and displauy the user hand values
-        static void GetAndDisplayUserHandValue()
-        {
-            var userHand = DealHand();
-            List<int> cardValue = new List<int>();
-            foreach (Card card in userHand)
-            {
-                cardValue.Add(card.GetCardValue());
-            }
-            Console.WriteLine(cardValue.Sum(x => Convert.ToInt32(x)));
-        }
+
 
         static void Main(string[] args)
         {
@@ -84,13 +74,16 @@ namespace blackjack
             var dealerHand = DealHand();
 
             Greeting();
-
             DisplayHand(userHand);
-
-
             DisplayUserHandTotalMessage();
 
-            GetAndDisplayUserHandValue();
+            //this will get and display user hand value
+            List<int> cardValue = new List<int>();
+            foreach (Card card in userHand)
+            {
+                cardValue.Add(card.GetCardValue());
+            }
+            Console.WriteLine(cardValue.Sum(x => Convert.ToInt32(x)));
 
 
             //this will calculate the dealer hands value
@@ -103,12 +96,8 @@ namespace blackjack
             ShowDealerCardMessage();
             Console.ReadKey();
 
-
-
-
             //this is showing one of the dealers cards. 
             DisplayHand(dealerHand.Take(1));
-
 
             Console.ReadLine();
         }
