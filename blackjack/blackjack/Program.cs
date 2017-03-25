@@ -65,7 +65,6 @@ namespace blackjack
             var userHand = DealHand();
             var dealerHand = DealHand();
 
-
             Greeting();
             Console.ReadKey();
 
@@ -73,18 +72,19 @@ namespace blackjack
             ShowDealerCardMessage();
             Console.ReadKey();
 
-            //this is getting your card hand value 
+            //this is getting your card hand value but only gets one...broken list wont work for me for some reason. 
             /*var cardValue = 0;
             foreach (Card card in userHand)
             {
                 card.GetCardValue();
                 cardValue = card.GetCardValue();
             }*/
-            List<int> cardValue;
+
+            List<int> cardValue = new List<int>();
             foreach (Card card in userHand)
             {
                 card.GetCardValue();
-                cardValue = card.GetCardValue();
+                cardValue.Add(card.GetCardValue());
             }
 
             //this will display the value of the cards in the hand. 
