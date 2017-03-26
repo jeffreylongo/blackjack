@@ -88,7 +88,7 @@ namespace blackjack
 
         static void Main(string[] args)
         {
-
+            Start:
             deck = CreateAndShuffleDeck();
             var userHand = DealHand();
             var dealerHand = DealHand();
@@ -141,12 +141,13 @@ namespace blackjack
             DisplayUserHandTotalMessage();
 
             //this will get and display user hand value
-            List<int> cardValueUpdateAgain = new List<int>();
+            var cardValueUpdate2Sum = 0;
+            List<int> cardValueUpdate2 = new List<int>();
             foreach (Card card in userHand)
             {
-                cardValueUpdateAgain.Add(card.GetCardValue());
+                cardValueUpdate2.Add(card.GetCardValue());
+                cardValueUpdate2Sum = cardValueUpdate2.Sum(x => Convert.ToInt32(x));
             }
-            Console.WriteLine(cardValueUpdateAgain.Sum(x => Convert.ToInt32(x)));
 
             //this will compare user hand and dealer hand value. 
             if (dealerCardValueSum == 21)
@@ -154,12 +155,12 @@ namespace blackjack
                 Console.WriteLine("You lose, dealer has 21.");
                 Console.ReadKey();
             }
-            else if (userCardValueSum > 21)
+            else if (cardValueUpdate2Sum > 21)
             {
                 Console.WriteLine("You bust...that means lose.");
                 Console.ReadKey();
             }
-            else if (userCardValueSum <= 21 && userCardValueSum > dealerCardValueSum)
+            else if (cardValueUpdate2Sum <= 21 && cardValueUpdate2Sum > dealerCardValueSum)
             {
                 Console.WriteLine("You win, hooray.");
             }
@@ -167,9 +168,13 @@ namespace blackjack
             {
                 Console.WriteLine("You lose.");
             }
+            Console.WriteLine("The dealer has: " + dealerCardValueSum);
+            Console.WriteLine("You have: " + cardValueUpdate2Sum);
 
             Console.ReadLine();
+            goto Start;
         }
+        
 
 
     }
