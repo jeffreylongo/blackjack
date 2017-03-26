@@ -131,7 +131,11 @@ namespace blackjack
             }
             Console.WriteLine(cardValueUpdate.Sum(x => Convert.ToInt32(x)));
 
+            //this will compare user hand and dealer hand value. 
+            if (dealerCardValue = 21)
+            {
 
+            }
 
             Console.ReadLine();
         }
