@@ -65,7 +65,7 @@ namespace blackjack
             Console.ReadKey();
         }
         //this will prompt the user to hit or stay and store the users answer
-        static List<Card> HitOrStayPromptAndUserInput(List<Card> hand)
+        static List<Card> HitOrStayPromptAndUserInput(List<Card> userHand)
         {
             Console.WriteLine("Enter (H) to HIT or Enter (S) to STAY.");
             var result = Console.ReadLine();
@@ -77,15 +77,14 @@ namespace blackjack
             if (result == "H")
             {
                 deck.RemoveAt(0);
-                hand.Add(deck[0]);
-                return hand;
+                userHand.Add(deck[0]);
+                return userHand;
             }
             else
             {
-                return hand;
+                return userHand;
             }
         }
-
 
         static void Main(string[] args)
         {
@@ -119,7 +118,19 @@ namespace blackjack
             //this is showing one of the dealers cards. 
             DisplayHand(dealerHand.Take(1));
 
-            HitOrStayPromptAndUserInput();
+
+            HitOrStayPromptAndUserInput(userHand);
+            DisplayHand(userHand);
+            DisplayUserHandTotalMessage();
+
+            //this will get and display user hand value
+            List<int> cardValueUpdate = new List<int>();
+            foreach (Card card in userHand)
+            {
+                cardValueUpdate.Add(card.GetCardValue());
+            }
+            Console.WriteLine(cardValueUpdate.Sum(x => Convert.ToInt32(x)));
+
 
 
             Console.ReadLine();
