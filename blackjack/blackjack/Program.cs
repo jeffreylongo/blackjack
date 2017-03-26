@@ -135,6 +135,19 @@ namespace blackjack
             }
             Console.WriteLine(cardValueUpdate.Sum(x => Convert.ToInt32(x)));
 
+            //this will run the hit option for user again
+            HitOrStayPromptAndUserInput(userHand);
+            DisplayHand(userHand);
+            DisplayUserHandTotalMessage();
+
+            //this will get and display user hand value
+            List<int> cardValueUpdateAgain = new List<int>();
+            foreach (Card card in userHand)
+            {
+                cardValueUpdateAgain.Add(card.GetCardValue());
+            }
+            Console.WriteLine(cardValueUpdateAgain.Sum(x => Convert.ToInt32(x)));
+
             //this will compare user hand and dealer hand value. 
             if (dealerCardValueSum == 21)
             {
