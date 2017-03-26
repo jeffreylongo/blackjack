@@ -150,7 +150,7 @@ namespace blackjack
             }
 
             //this will hit for the dealer if he has less than 17
-            while (dealerCardValueSum < 17 && dealerCardValueSum > 21)
+            while (dealerCardValueSum < 17 && dealerCardValueSum >= 21)
             {
                 deck.RemoveAt(0);
                 dealerHand.Add(deck[0]);
