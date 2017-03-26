@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace blackjack
 {
     class Program
-        {   
+    {
         static List<Card> deck;
         //this is creating my deck
         static List<Card> CreateAndShuffleDeck()
@@ -69,22 +69,19 @@ namespace blackjack
         {
             Console.WriteLine("Enter (H) to HIT or Enter (S) to STAY.");
             var result = Console.ReadLine();
-            if (result == "H")
+            while (result != "H" && result != "S")
             {
-                deck.RemoveAt(0);
-                hand.Add(deck[0]);
-                return hand;
-            }
-            else if (result == "S") 
-            {
-                return hand;
-            }
-            else 
-            {
-                while(result != "H" && result != "S")
+                if (result == "H")
                 {
-                    Console.WriteLine("I said Enter (S) or (H)");
+                    deck.RemoveAt(0);
+                    hand.Add(deck[0]);
+                    return hand;
                 }
+                else if (result == "S")
+                {
+                    return hand;
+                }
+                Console.WriteLine("I said Enter (S) or (H)");
             }
         }
 
@@ -121,7 +118,7 @@ namespace blackjack
             //this is showing one of the dealers cards. 
             DisplayHand(dealerHand.Take(1));
 
-            HitOrStayPrompt();
+            HitOrStayPromptAndUserInput();
 
 
             Console.ReadLine();
