@@ -107,10 +107,12 @@ namespace blackjack
 
 
             //this will calculate the dealer hands value
+            var dealerCardValueSum = 0;
             List<int> dealerCardValue = new List<int>();
             foreach (Card card in dealerHand)
             {
                 dealerCardValue.Add(card.GetCardValue());
+                dealerCardValueSum = dealerCardValue.Sum(x => Convert.ToInt32(x));
             }
 
             ShowDealerCardMessage();
@@ -132,9 +134,9 @@ namespace blackjack
             Console.WriteLine(cardValueUpdate.Sum(x => Convert.ToInt32(x)));
 
             //this will compare user hand and dealer hand value. 
-            if (dealerCardValue = 21)
+            if (dealerCardValueSum == 21)
             {
-
+                Console.WriteLine("You lose, dealer has 21.");
             }
 
             Console.ReadLine();
