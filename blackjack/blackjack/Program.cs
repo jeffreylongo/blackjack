@@ -159,7 +159,7 @@ namespace blackjack
                 Console.WriteLine("You bust...that means lose.");
                 Console.ReadKey();
             }
-            else if (userCardValueSum > dealerCardValueSum)
+            else if (userCardValueSum <= 21 && userCardValueSum > dealerCardValueSum)
             {
                 Console.WriteLine("You win, hooray.");
             }
