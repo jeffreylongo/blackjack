@@ -57,6 +57,7 @@ namespace blackjack
         static void ShowDealerCardMessage()
         {
             Console.WriteLine("Press ::RETURN:: to see the dealers dirt.");
+            Console.ReadKey();
         }
         //this will prompt user to display their total
         static void DisplayUserHandTotalMessage()
@@ -94,7 +95,6 @@ namespace blackjack
             }
 
             ShowDealerCardMessage();
-            Console.ReadKey();
 
             //this is showing one of the dealers cards. 
             DisplayHand(dealerHand.Take(1));
