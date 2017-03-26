@@ -149,6 +149,13 @@ namespace blackjack
                 cardValueUpdate2Sum = cardValueUpdate2.Sum(x => Convert.ToInt32(x));
             }
 
+            //this will hit for the dealer if he has less than 17
+            while (dealerCardValueSum < 17)
+            {
+                deck.RemoveAt(0);
+                dealerHand.Add(deck[0]);
+            }
+
             //this will compare user hand and dealer hand value. 
             if (dealerCardValueSum == 21)
             {
