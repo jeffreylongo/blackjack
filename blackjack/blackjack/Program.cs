@@ -37,7 +37,6 @@ namespace blackjack
             deck.RemoveAt(0);
             hand.Add(newCard);
             return hand;
-            
         }
         //This will show the hand. 
         static void DisplayHand(IEnumerable<Card> hand)
@@ -66,20 +65,26 @@ namespace blackjack
             Console.ReadKey();
         }
         //this will prompt the user to hit or stay and store the users answer
-        static IEnumerable<Card> HitOrStayPrompt(IEnumerable<Card> hand, List<Card> deck, )
+        static List<Card> HitOrStayPromptAndUserInput(List<Card> hand)
         {
-            Console.WriteLine("Enter (1) to HIT or Enter (2) to STAY.");
-            var result = 0;
-            //return Convert.ToInt32(result);
-            if (result == 1)
+            Console.WriteLine("Enter (H) to HIT or Enter (S) to STAY.");
+            var result = Console.ReadLine();
+            if (result == "H")
             {
                 deck.RemoveAt(0);
                 hand.Add(deck[0]);
                 return hand;
             }
-            if else (result == 2) 
+            else if (result == "S") 
             {
-
+                return hand;
+            }
+            else 
+            {
+                while(result != "H" && result != "S")
+                {
+                    Console.WriteLine("I said Enter (S) or (H)");
+                }
             }
         }
 
