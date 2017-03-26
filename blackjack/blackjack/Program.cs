@@ -146,18 +146,28 @@ namespace blackjack
             foreach (Card card in userHand)
             {
                 cardValueUpdate2.Add(card.GetCardValue());
-                cardValueUpdate2Sum = cardValueUpdate2.Sum(x => Convert.ToInt32(x));
             }
+            cardValueUpdate2Sum = cardValueUpdate2.Sum(x => Convert.ToInt32(x));
 
             //this will hit for the dealer if he has less than 17
+            var newDealerCard = deck[0];
             while (dealerCardValueSum < 17 && dealerCardValueSum >= 21)
             {
                 deck.RemoveAt(0);
-                dealerHand.Add(deck[0]);
+                dealerHand.Add(newDealerCard);
             }
 
+            //this will calculate the dealers hand value again
+            var dealerCardValue2Sum = 0;
+            List<int> dealerCardValue2 = new List<int>();
+            foreach (Card card in dealerHand)
+            {
+                dealerCardValue2.Add(card.GetCardValue());
+            }
+            dealerCardValue2Sum = dealerCardValue2.Sum(x => Convert.ToInt32(x));
+
             //this will compare user hand and dealer hand value. 
-            if (dealerCardValueSum == 21)
+            if (dealerCardValue2Sum == 21)
             {
                 Console.WriteLine("You lose, dealer has 21.");
                 Console.ReadKey();
@@ -167,7 +177,7 @@ namespace blackjack
                 Console.WriteLine("You bust...that means lose.");
                 Console.ReadKey();
             }
-            else if (cardValueUpdate2Sum <= 21 && cardValueUpdate2Sum > dealerCardValueSum)
+            else if (cardValueUpdate2Sum <= 21 && cardValueUpdate2Sum > dealerCardValue2Sum)
             {
                 Console.WriteLine("You win, hooray.");
             }
@@ -175,7 +185,7 @@ namespace blackjack
             {
                 Console.WriteLine("You lose.");
             }
-            Console.WriteLine("The dealer has: " + dealerCardValueSum);
+            Console.WriteLine("The dealer has: " + dealerCardValue2Sum);
             Console.WriteLine("You have: " + cardValueUpdate2Sum);
 
             Console.ReadLine();
