@@ -71,17 +71,18 @@ namespace blackjack
             var result = Console.ReadLine();
             while (result != "H" && result != "S")
             {
-                if (result == "H")
-                {
-                    deck.RemoveAt(0);
-                    hand.Add(deck[0]);
-                    return hand;
-                }
-                else if (result == "S")
-                {
-                    return hand;
-                }
                 Console.WriteLine("I said Enter (S) or (H)");
+                result = Console.ReadLine();
+            }
+            if (result == "H")
+            {
+                deck.RemoveAt(0);
+                hand.Add(deck[0]);
+                return hand;
+            }
+            else
+            {
+                return hand;
             }
         }
 
@@ -123,5 +124,7 @@ namespace blackjack
 
             Console.ReadLine();
         }
+
+
     }
 }
