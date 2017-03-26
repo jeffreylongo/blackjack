@@ -139,10 +139,20 @@ namespace blackjack
             if (dealerCardValueSum == 21)
             {
                 Console.WriteLine("You lose, dealer has 21.");
+                Console.ReadKey();
             }
-            else if ()
+            else if (userCardValueSum > 21)
             {
-
+                Console.WriteLine("You bust...that means lose.");
+                Console.ReadKey();
+            }
+            else if (userCardValueSum > dealerCardValueSum)
+            {
+                Console.WriteLine("You win, hooray.");
+            }
+            else
+            {
+                Console.WriteLine("You lose.");
             }
 
             Console.ReadLine();
