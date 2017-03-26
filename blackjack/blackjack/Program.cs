@@ -99,6 +99,13 @@ namespace blackjack
             //this is showing one of the dealers cards. 
             DisplayHand(dealerHand.Take(1));
 
+            //this will prompt the user to hit or stay
+            Console.WriteLine("Press (1) to hit or press (2) to stay");
+            Console.ReadKey();
+
+            //this will give another card if user hits or compare hands to dealer if user stays
+
+
             Console.ReadLine();
         }
     }
