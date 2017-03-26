@@ -65,6 +65,23 @@ namespace blackjack
             Console.WriteLine("Press ::RETURN:: to see your total card value in case you cant add.");
             Console.ReadKey();
         }
+        //this will prompt the user to hit or stay and store the users answer
+        static IEnumerable<Card> HitOrStayPrompt(IEnumerable<Card> hand, List<Card> deck, )
+        {
+            Console.WriteLine("Enter (1) to HIT or Enter (2) to STAY.");
+            var result = 0;
+            //return Convert.ToInt32(result);
+            if (result == 1)
+            {
+                deck.RemoveAt(0);
+                hand.Add(deck[0]);
+                return hand;
+            }
+            if else (result == 2) 
+            {
+
+            }
+        }
 
 
         static void Main(string[] args)
@@ -99,11 +116,7 @@ namespace blackjack
             //this is showing one of the dealers cards. 
             DisplayHand(dealerHand.Take(1));
 
-            //this will prompt the user to hit or stay
-            Console.WriteLine("Press (1) to hit or press (2) to stay");
-            Console.ReadKey();
-
-            //this will give another card if user hits or compare hands to dealer if user stays
+            HitOrStayPrompt();
 
 
             Console.ReadLine();
