@@ -93,9 +93,10 @@ namespace blackjack
             }
         }
 
+
         static void Main(string[] args)
         {
-            Start:
+            //Start:
             deck = CreateAndShuffleDeck();
             var userHand = DealHand();
             var dealerHand = DealHand();
@@ -196,7 +197,7 @@ namespace blackjack
             Console.WriteLine("You have: " + cardValueUpdate2Sum);
 
             Console.ReadLine();
-            goto Start;
+            //goto Start;
         }
         
 
