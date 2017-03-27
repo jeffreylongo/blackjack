@@ -38,6 +38,13 @@ namespace blackjack
             hand.Add(newCard);
             return hand;
         }
+        //this will deal 1 card and remote it from the deck
+        static Card DealCard()
+        {
+            var newCard = deck[0];
+            deck.RemoveAt(0);
+            return newCard;
+        }
         //This will show the hand. 
         static void DisplayHand(IEnumerable<Card> hand)
         {
@@ -136,9 +143,9 @@ namespace blackjack
             Console.WriteLine(cardValueUpdate.Sum(x => Convert.ToInt32(x)));
 
             //this will run the hit option for user again
-            HitOrStayPromptAndUserInput(userHand);
+            /*HitOrStayPromptAndUserInput(userHand);
             DisplayHand(userHand);
-            DisplayUserHandTotalMessage();
+            DisplayUserHandTotalMessage();*/
 
             //this will get and display user hand value
             var cardValueUpdate2Sum = 0;
@@ -153,7 +160,7 @@ namespace blackjack
             var newDealerCard = deck[0];
             while (dealerCardValueSum < 17 && dealerCardValueSum >= 21)
             {
-                deck.RemoveAt(0);
+                DealCard();
                 dealerHand.Add(newDealerCard);
             }
 
